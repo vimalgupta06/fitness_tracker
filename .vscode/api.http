@@ -1,0 +1,33 @@
+@baseUrl = http://localhost:5000/api
+@token = PASTE_ACCESS_TOKEN_HERE
+
+### Register
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Get Me
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{token}}
+
+### Logout
+POST {{baseUrl}}/auth/logout
+Authorization: Bearer {{token}}
+
+### Get All Users (admin)
+GET {{baseUrl}}/users
+Authorization: Bearer {{token}}
